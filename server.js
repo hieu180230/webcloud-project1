@@ -1,7 +1,10 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path')
+const cors = require("cors");
 const homepage = fs.readFileSync('./views/index.html');
+
+app.use(cors());
 
 // Function to determine the correct MIME type
 function getContentType(ext) {
