@@ -1,3 +1,4 @@
+require('dotenv').config();
 const http = require('http');
 const fs = require('fs');
 const path = require('path')
@@ -48,7 +49,7 @@ const server = http.createServer((req, res) => {
 });
 
 // Specify the port to listen on
-const port = 8080;
+const port = process.env.WEBSITES_PORT || 8080;
 
 // Start the server
 server.listen(port, '127.0.0.1', () => {
