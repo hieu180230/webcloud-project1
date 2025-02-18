@@ -2,10 +2,8 @@ require('dotenv').config();
 const http = require('http');
 const fs = require('fs');
 const path = require('path')
-const cors = require("cors");
 const homepage = fs.readFileSync('./views/index.html');
 
-app.use(cors());
 
 // Function to determine the correct MIME type
 function getContentType(ext) {
@@ -30,7 +28,7 @@ function getContentType(ext) {
 const server = http.createServer((req, res) => {
     let filePath = './views' + (req.url === '/' ? '/index.html' : req.url);
     const ext = path.extname(filePath);
-
+    
     // Serve the requested file
     fs.readFile(filePath, (err, content) => {
     if (err) {
@@ -52,6 +50,6 @@ const server = http.createServer((req, res) => {
 const port = process.env.WEBSITES_PORT || 8080;
 
 // Start the server
-server.listen(port, '127.0.0.1', () => {
+server.listen(port, () => {
     console.log(`Node.js HTTP server is running on port ${port}`);
 });
