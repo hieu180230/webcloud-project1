@@ -1,0 +1,166 @@
+/* General Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    justify-content: space-between;
+}
+
+/* Main content should fill the available space above the footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    background-color: #e6e6fa; /* Lavender */
+    padding: 10px;
+    text-align: center;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #e6e6fa; /* Lavender */
+    color: #333333;
+    width: 100%; /* Make sure it fills the width of the page */
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex; /* Align items horizontally */
+    justify-content: center; /* Center the icons */
+    gap: 20px; /* Space between icons */
+    margin-top: auto;
+}
+
+.social-icon {
+    width: 24px; /* Adjust the size of the social icons as needed */
+    height: 24px;
+    transition: filter 0.3s ease; /* Smooth transition for filter effect */
+}
+
+/* Change the icon to lavender on hover*/
+.social-icon:hover {
+    filter: invert(89%) sepia(20%) saturate(203%) hue-rotate(202deg) brightness(99%) contrast(97%);
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #9932cc;
+}
+
+h1, h2, h3 {
+    color: #9932cc; /* Pink Pastel */
+    text-align: center;
+}
+
+.intro {
+    padding: 20px;
+}
+
+main {
+    flex: 1;
+    padding-bottom: 60px; /* Adjust as needed */
+}
+
+section {
+    padding: 20px;
+}
+
+.project, article {
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #9932cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e6e6fa;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #9932cc;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #e6e6fa;
+    position: relative;
+    width: 100%;
+}
