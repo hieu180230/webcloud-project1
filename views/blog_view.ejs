@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= result.post_title %>
+    </title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <script src="../header.js"></script>
+
+    <header>
+        <div class="blog-header">
+            <button id="back-button" class="circle-button"><i class="fas fa-arrow-left"></i></button>
+            <h1>View Blog Post</h1>
+        </div>
+    </header>
+
+    <main>
+        <div id="blog-viewer">
+            <div id="blog-content">
+                <%- result.post_content %>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const post = <%- JSON.stringify(result) %>;
+        const del_confirm = "<%- del %>";
+    </script>
+    <script src="../blog_view.js">    </script>
+</body>
+
+</html>

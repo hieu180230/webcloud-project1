@@ -1,55 +1,27 @@
 require('dotenv').config();
-const http = require('http');
-const fs = require('fs');
-const path = require('path')
-const homepage = fs.readFileSync('./views/index.html');
-
-
-// Function to determine the correct MIME type
-function getContentType(ext) {
-    switch (ext) {
-      case '.html':
-        return 'text/html';
-      case '.css':
-        return 'text/css';
-      case '.js':
-        return 'application/javascript';
-      case '.png':
-        return 'image/png';
-      case '.jpg':
-      case '.jpeg':
-        return 'image/jpeg';
-      default:
-        return 'application/octet-stream';
-    }
-  }
-
-// Create an HTTP server
-const server = http.createServer((req, res) => {
-    let filePath = './views' + (req.url === '/' ? '/index.html' : req.url);
-    const ext = path.extname(filePath);
-    
-    // Serve the requested file
-    fs.readFile(filePath, (err, content) => {
-    if (err) {
-      if (err.code === 'ENOENT') {
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end('<h1>404 - Not Found</h1>', 'utf-8');
-      } else {
-        res.writeHead(500);
-        res.end(`Server Error: ${err.code}`);
-      }
-    } else {
-      res.writeHead(200, { 'Content-Type': getContentType(ext) });
-      res.end(content, 'utf-8');
-    }
-  });
-});
-
+const path = require('path');
 // Specify the port to listen on
 const port = process.env.WEBSITES_PORT || 8080;
 
-// Start the server
-server.listen(port, () => {
-    console.log(`Node.js HTTP server is running on port ${port}`);
+const express = require('express');
+const app = express();
+const body_parser = require('body-parser');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+global.ROOT_DIR = __dirname;
+
+mongoose.connect('mongodb+srv://nnhieu22:'+ process.env.COSMO_PW +'@cloudp1db.mongocluster.cosmos.azure.com/blogdb?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000');
+
+app.use(morgan('dev'));
+app.use(body_parser.urlencoded({extended: false}));
+app.use(body_parser.json());
+app.set("view engine", "ejs");
+
+app.use(express.static(path.join(ROOT_DIR, 'views')));
+
+app.use('/', require("./routes/routes"));
+app.use('/blog', require("./routes/blog_routes"));
+
+app.listen(port, () => {
+  console.log(`Node.js HTTP server is running on port ${port}`);
 });
