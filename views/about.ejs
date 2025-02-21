@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div id="header-placeholder"></div>
-    <script src = "header.js"></script>
-    
+    <script src="header.js"></script>
+
     <main>
         <section id="about">
             <h2>About Me</h2>
             <p>Write a brief introduction about yourself, your background, and your career goals.</p>
-            <img src="your-profile-picture.jpg" alt="Profile Picture">
+            <div class="profile-image-container">
+                <img src="https://cloudp1db.blob.core.windows.net/resources/demo-image.jpg" alt="Profile Picture"
+                    onload="adjustContainerSize(this)">
+            </div>
         </section>
     </main>
 
     <div id="footer-placeholder" class="footer"></div>
-    <script src = "footer.js"></script>
+    <script src="footer.js"></script>
+    <script>
+        function adjustContainerSize(img) {
+            img.onload = null; // Prevent infinite loop
+            const container = img.parentNode;
+            container.style.width = img.naturalWidth / 4 + "px";
+            container.style.height = img.naturalHeight / 4 + "px";
+        }
+    </script>
 </body>
+
 </html>
