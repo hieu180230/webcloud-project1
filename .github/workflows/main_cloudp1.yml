@@ -70,4 +70,7 @@ jobs:
           app-name: 'cloudp1'
           slot-name: 'Production'
           package: .
+          env: | 
+            WEBSITES_PORT=8080
+            NODE_ENV=production
           
