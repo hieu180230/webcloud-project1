@@ -14,7 +14,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const ROOT_DIR = __dirname;
 
-mongoose.connect('mongodb+srv://nnhieu22:' + process.env.COSMO_PW + '@cloudp1db.mongocluster.cosmos.azure.com/blogdb?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000');
+mongoose.connect(process.env.COSMODB_URI);
 app.use(morgan('dev'));
 app.use(body_parser.urlencoded({ extended: false }));
 app.use(body_parser.json());
