@@ -1,4 +1,8 @@
 require('dotenv').config();
+
+let appInsights = require("applicationinsights");
+appInsights.setup(process.env.INSIGHT_CONNCT).start();
+
 const path = require('path');
 // Specify the port to listen on
 const port = process.env.WEBSITES_PORT || 8080;
