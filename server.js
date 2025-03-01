@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { BlobServiceClient } = require("@azure/storage-blob");
 
 let appInsights = require("applicationinsights");
 appInsights.setup(process.env.INSIGHT_CONNCT).start();
@@ -25,6 +26,8 @@ app.use(express.static(path.join(ROOT_DIR, 'views')));
 
 app.use('/', require("./routes/routes"));
 app.use('/blog', require("./routes/blog_routes"));
+
+
 
 app.listen(port, () => {
   console.log(`Node.js HTTP server is running on port ${port}`);
