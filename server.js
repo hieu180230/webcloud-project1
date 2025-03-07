@@ -31,4 +31,6 @@ app.use('/blog', require("./routes/blog_routes"));
 
 app.listen(port, () => {
   console.log(`Node.js HTTP server is running on port ${port}`);
-});
+})
+
+module.exports = app

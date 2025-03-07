@@ -25,7 +25,8 @@
     "mongosh": "^2.3.9",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.9",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "vercel": "^41.3.2"
   },
   "nodemonConfig": {
     "ext": "js,json,hbs,ejs,css"
